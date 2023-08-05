@@ -237,6 +237,7 @@ class GenericResource(object):
         'text/html',
         'text/xhtml'
     ])
+
     # html_content_types.__doc__ = "Set of valid html mimetypes."
 
     def viewing_html(self):
@@ -246,6 +247,7 @@ class GenericResource(object):
     css_content_types = tuple([
         'text/css',
     ])
+
     # css_content_types.__doc__ = "Set of valid css mimetypes."
 
     def viewing_css(self):
@@ -256,6 +258,7 @@ class GenericResource(object):
         'text/javascript',
         'application/javascript'
     ])
+
     # js_content_types.__doc__ = "Set of valid javascript mimetypes."
 
     def viewing_js(self):
@@ -305,7 +308,7 @@ class GenericResource(object):
                 "Stream attribute is True by default for reasons."
             ))
         self.set_response(
-            self.session.request(method, url, stream=True, **params))
+            self.session.request(method, url, verify=False, stream=True, **params))
 
     def get(self, url, **params):
         """Initiates an `get` request for the given url.
